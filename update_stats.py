@@ -5,14 +5,11 @@ import yaml
 import json
 from oauth2client.service_account import ServiceAccountCredentials
 
-#read columns headers
-#for each line create a row to write and write it
-
 def parse_args():
 	parser = argparse.ArgumentParser(description='Google Sheetspread update in Python. Provide as input a json in the format "column_name": "value"')
 
 	parser.add_argument('--creds',
-                    help='The credential file (json), if not specified the file name will be recoved from env vars.')
+                    help='The credential file (json), if not specified the credentials will be recovered from env vars.')
 
 	parser.add_argument('--workspace',
                     help='The workspace alias (ref. settings.yml), if not present the default one will be used.')
@@ -37,7 +34,7 @@ def parse_args():
 	
 	else:
 		print('[INFO] Using credential from env var.');
-		json_creds = ""
+		json_creds = "" #TODO Integrate env vars
 
 	if args.workspace is not None and args.sk is not None or args.wi is not None:
 		print('[ERROR] It is not possible to define both the workspace and the spreadsheet key and the worksheet index.');
@@ -92,7 +89,7 @@ if __name__ == '__main__':
 		val = wsh.cell(1, i).value;
 		if val == '':
 			if i == 1:
-				print('[ERROR] Header row is not present.');
+				print('[ERROR] Header row is not present in the remote file.');
 				exit(-1);
 			break;
 		else:
@@ -106,11 +103,7 @@ if __name__ == '__main__':
 	values = []
 	for k in sorted(row.keys()):
 		values.append(row[k])
-		print(k)
 
 	print('[DEBUG] Writing on remote file: ')
 	print(values)
-	wsh.append_row(values)
-
-	
-
+	wsh.append_row(values) #TODO Create row 2 and copy in it value
