@@ -1,0 +1,9 @@
+workspaces:
+    default:
+        -alias: progStats
+        -spreadsheet_key: 1AfW3SaICJ8v-T05a6lO8acW-D9wzdmEitErFaFr1fQU
+        -worksheet_index: 0
+    workspace1:
+        -alias: generalStats
+        -spreadsheet_key: sk2
+        -worksheet_index: 0
