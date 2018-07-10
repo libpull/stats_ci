@@ -99,7 +99,9 @@ if __name__ == '__main__':
 	for k,v in json_obj.items():
 		if k in headers:
 			row[headers[k]] = v;
-		
+		else:
+			print('[ERROR] Column {} not present. Aborting.'.format(k));
+	
 	values = []
 	for k in sorted(row.keys()):
 		values.append(row[k])
