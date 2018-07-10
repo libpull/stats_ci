@@ -18,7 +18,7 @@ pip install oauth2client
 ```
 
 ## Installation
-Before using the script in it necessary to obtain the OAuth2 credentials from the Google Developer Console (as detailed in the [gspread documentation](http://gspread.readthedocs.io/en/latest/oauth2.html).
+Before using the script in it necessary to obtain the OAuth2 credentials from the Google Developer Console (as detailed in the [gspread documentation](http://gspread.readthedocs.io/en/latest/oauth2.html)):
 
 1. Create a new project in the [Google Developers Console](https://console.developers.google.com).
 2. In "API & auth">"API Library" select "Google Sheets API" and enable the API.
