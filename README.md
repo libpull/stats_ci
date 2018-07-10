@@ -21,10 +21,14 @@ pip install oauth2client
 Before using the script in it necessary to obtain the OAuth2 credentials from the Google Developer Console (as detailed in the [gspread documentation](http://gspread.readthedocs.io/en/latest/oauth2.html)):
 
 1. Create a new project in the [Google Developers Console](https://console.developers.google.com).
-2. In "API & auth">"API Library" select "Google Sheets API" and enable the API.
+![Create New Project](Images/create_new_project.png "Create New Project")
+2. In "APIs & Services">"Library" select "Google Sheets API" and enable the API.
 3. In "Credential" select "Create credential">"Service Account Key" and download the JSON file.
 4. Create the new private Google Spreadsheet and from the file sharing option share it with the email `client_email` that is present in the credential JSON file, otherwise you won't be able to read or modifity the file (you will receive a 403 error).
-5. In order to use the program, you need the spreadsheet key (you can find it in the url) and the worksheet index. Indexes start from 0, i.e. sheet 1 is at index 0.
+5. In order to use the program, you need the spreadsheet key and the worksheet index. Indexes start from 0, i.e. sheet 1 is at index 0. The spreadsheet key can be retrieved from the URL:
+```
+https://docs.google.com/spreadsheets/d/<spreadsheet_key>/edit
+```
 
 ## Example
 
@@ -47,7 +51,7 @@ In this case, the Google Spreadsheet contains the following data:
 | Banana        | Yellow        | 165    |
 | Pear          | Green         | 180    |
 
-After running the program the table will be updated:
+After running the program the table will be updatedi. The new line will be added at the top of the document, after the header row:
 
 | Fruit         | Colour        | Weight |
 | ------------- |---------------| ------:|

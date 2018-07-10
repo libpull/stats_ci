@@ -1,8 +1,9 @@
 # TODO
 
-1. Add LICENSE
-2. Name
-3. Readme: installation
-4. Use it with travis.ci 
-5. Testing
+- credential in env vars
+- Add LICENSE
+- Name
+- Readme: add images in installation
+- Use it with travis.ci 
+- Testing
 

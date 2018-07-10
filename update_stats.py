@@ -108,4 +108,4 @@ if __name__ == '__main__':
 
 	print('[DEBUG] Writing on remote file: ')
 	print(values)
-	wsh.append_row(values) #TODO Create row 2 and copy in it value
+	wsh.insert_row(values, 2)
