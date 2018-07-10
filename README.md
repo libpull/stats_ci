@@ -23,8 +23,12 @@ Before using the script in it necessary to obtain the OAuth2 credentials from th
 1. Create a new project in the [Google Developers Console](https://console.developers.google.com).
 ![Create New Project](Images/create_new_project.png "Create New Project")
 2. In "APIs & Services">"Library" select "Google Sheets API" and enable the API.
+![Enable API](Images/enable_API.png "Enable API")
 3. In "Credential" select "Create credential">"Service Account Key" and download the JSON file.
+![Create Credentials](Images/create_credentials_1.png "Create Credentials 1")
+![Create Credentials](Images/create_credentials_2.png "Create Credentials 2")
 4. Create the new private Google Spreadsheet and from the file sharing option share it with the email `client_email` that is present in the credential JSON file, otherwise you won't be able to read or modifity the file (you will receive a 403 error).
+![Share Settings](Images/share_client_email.png "Share Settings")
 5. In order to use the program, you need the spreadsheet key and the worksheet index. Indexes start from 0, i.e. sheet 1 is at index 0. The spreadsheet key can be retrieved from the URL:
 ```
 https://docs.google.com/spreadsheets/d/<spreadsheet_key>/edit
