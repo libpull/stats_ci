@@ -9,12 +9,12 @@ The file can be private, that means that it is necessary to activate Google Spre
 ## Requirements
 - Python 3.x
 - [gspread](https://github.com/burnash/gspread):
-```
-pip install gspread
+```bash
+$ pip install gspread
 ```
 - Oauth2client:
-```
-pip install oauth2client
+```bash
+$ pip install oauth2client
 ```
 
 ## Installation
@@ -36,14 +36,14 @@ https://docs.google.com/spreadsheets/d/<spreadsheet_key>/edit
 
 ## Example
 
-```
-cat input.json | python update_stats.py --creds <cred file>
+```bash
+$ cat input.json | python update_stats.py --creds <cred file>
 ```
 
 `creds.json` contains the credentials (see "Installation" for details).
 
 The input file must be a json with the following structure:
-```
+```json
 {"Fruit": "Apple", "Colour": "Red","Weight": "150"}
 ```
 
@@ -65,7 +65,7 @@ After running the program the table will be updatedi. The new line will be added
 | Pear          | Green         | 180    |
 
 The Google Spreadsheet to update is defined in the settings.yml file. This file has the following structure:
-```
+```yaml
 workspaces:
     default:
         -alias: progStats
@@ -79,12 +79,14 @@ workspaces:
 A workspace is the combination of a spreadsheet and a worksheet of that file.
 If the program has no argument the `default` workspace is used, otherwise it is possible to use the workspace alias to refer to a specific workspace or directly input a spreadsheet key and the worksheet index at runtime:
 
+```bash
+$ cat input.json | python update_stats.py --creds <cred_file> --workspace <alias>
 ```
-cat input.json | python update_stats.py --creds <cred_file> --workspace <alias>
+```bash
+$ cat input.json | python update_stats.py --creds <cred_file> --sk <key> --wi <index>
 ```
-```
-cat input.json | python update_stats.py --creds <cred_file> --sk <key> --wi <index>
-```
+
+Use `-h` to see the program help.
 
 ## Author
 Silvia Vitali, [sia4](https://github.com/sia4).
