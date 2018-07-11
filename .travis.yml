@@ -1,6 +1,8 @@
 language: python
 sudo: false
 dist: trusty
+notifications:
+  email: false
 
 install:
     pip install gspread pyyaml oauth2client
