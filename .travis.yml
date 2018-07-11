@@ -4,7 +4,7 @@ dist: trusty
 
 install:
     # here you should try to execute the script and see if it works
-    pip install gspread pyyaml
+    pip install gspread pyyaml oauth2client
 
 script:
     # here you should execute the script to send some data to the spreadsheet
