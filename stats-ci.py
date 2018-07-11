@@ -6,7 +6,7 @@ import json
 from oauth2client.service_account import ServiceAccountCredentials
 
 def parse_args():
-	parser = argparse.ArgumentParser(description='Google Sheetspread update in Python. Provide as input a json in the format "column_name": "value"')
+	parser = argparse.ArgumentParser(description='Stats CI helps you to track any measurable information you want to analyse of your project. To give this kind of flexibility, Stats CI allows you to pass a JSON value in input, that will be appended as a row into a Google Spreadsheet you define. In this way you can keep track of the informations of your specific build. The final goal is to compare data, create statistics and graphs on the project going on. The input of the program must be a JSON with the structure "column_name":"value"; column_name must be present in the first line (the header) of the Google Spreadsheet file. If it isn\'t, the entire operation will abort. The program is designed to work with Travis CI. For this reason it use a .yml settings file to set information related to the Spreadsheet to update.')
 
 	parser.add_argument('--creds',
                     help='The credential file (json), if not specified the credentials will be recovered from env vars.')
