@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
 	json_as_str = input()
 
-	json?obj = json_as_str;
+	json_obj = json_as_str;
 	#json_obj = json.loads(json_as_str)
 
 	scope = ['https://spreadsheets.google.com/feeds']
