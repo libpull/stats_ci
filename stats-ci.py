@@ -75,7 +75,7 @@ if __name__ == '__main__':
 	json_as_str = input()
 	print(json_as_str);
 	print(json_as_str[0]);
-	print(json_as_str['Colonna1'];
+	print(json_as_str['Colonna1']);
 
 	json_obj = json.loads(json_as_str)
 	print('[DEBUG] Input: ')
