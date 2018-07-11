@@ -7,11 +7,10 @@ install:
 
 script:
     # Build your program
-    - echo "Building my program"
-    - cat test.json | python stats-ci.py
+    echo "Building my program"
 
 #after_success:
     # Run Stats CI to log information related to the present build
     # Here there is an example on a possible input
     # The input can be also a JSON file on which you log information during the build operation
-    
+    cat test.json | python stats-ci.py
