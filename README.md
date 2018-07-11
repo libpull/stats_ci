@@ -26,7 +26,7 @@ $ pip install oauth2client
 ```
 
 ## Installation
-Before using the script in it necessary to obtain the OAuth2 credentials from the Google Developer Console (as detailed in the [gspread documentation](http://gspread.readthedocs.io/en/latest/oauth2.html)):
+Before using Stats CI in it necessary to obtain the OAuth2 credentials from the Google Developer Console (as detailed in the [gspread documentation](http://gspread.readthedocs.io/en/latest/oauth2.html)):
 
 1. Create a new project in the [Google Developers Console](https://console.developers.google.com).
 ![Create New Project](Images/create_new_project.png "Create New Project")
@@ -45,7 +45,7 @@ https://docs.google.com/spreadsheets/d/<spreadsheet_key>/edit
 ## Example
 
 ```bash
-$ cat input.json | python update_stats.py --creds <cred file>
+$ cat input.json | python stats-ci.py --creds <cred file>
 ```
 
 `creds.json` contains the credentials (see "Installation" for details).
@@ -63,7 +63,7 @@ In this case, the Google Spreadsheet contains the following data:
 | Banana        | Yellow        | 165    |
 | Pear          | Green         | 180    |
 
-After running the program the table will be updatedi. The new line will be added at the top of the document, after the header row:
+After running the program the table will be updated. The new line will be added at the top of the document, after the header row:
 
 | Fruit         | Colour        | Weight |
 | ------------- |---------------| ------:|
@@ -88,10 +88,10 @@ A workspace is the combination of a spreadsheet and a worksheet of that file.
 If the program has no argument the `default` workspace is used, otherwise it is possible to use the workspace alias to refer to a specific workspace or directly input a spreadsheet key and the worksheet index at runtime:
 
 ```bash
-$ cat input.json | python update_stats.py --creds <cred_file> --workspace <alias>
+$ cat input.json | python stats-ci.py --creds <cred_file> --workspace <alias>
 ```
 ```bash
-$ cat input.json | python update_stats.py --creds <cred_file> --sk <key> --wi <index>
+$ cat input.json | python stats-ci.py --creds <cred_file> --sk <key> --wi <index>
 ```
 
 Use `-h` to see the program help.
@@ -100,4 +100,4 @@ Use `-h` to see the program help.
 Silvia Vitali, [sia4](https://github.com/sia4).
 
 ## License
-[nome] is available under the MIT license. See the LICENSE file for more info.
+Stats CI is available under the MIT license. See the LICENSE file for more info.
