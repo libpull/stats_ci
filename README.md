@@ -72,7 +72,7 @@ After running the program the table will be updated. The new line will be added 
 | Banana        | Yellow        | 165    |
 | Pear          | Green         | 180    |
 
-The Google Spreadsheet to update is defined in the settings.yml file. This file has the following structure:
+The Google Spreadsheet to update is defined in the .stats.yml file. This file has the following structure:
 ```yaml
 workspaces:
     default:

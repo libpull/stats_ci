@@ -12,17 +12,17 @@ def parse_args():
                     help='The credential file (json), if not specified the credentials will be recovered from env vars.')
 
 	parser.add_argument('--workspace',
-                    help='The workspace alias (ref. settings.yml), if not present the default one will be used.')
+                    help='The workspace alias (ref. .stats.yml), if not present the default one will be used.')
 
 	parser.add_argument('--sk',
-                    help='The spreadsheet key, if this parameter is defined workspaces allready defined in settings.yml will not be taken into consideration. A worksheet index must be present.')
+                    help='The spreadsheet key, if this parameter is defined workspaces allready defined in .stats.yml will not be taken into consideration. A worksheet index must be present.')
 
 	parser.add_argument('--wi', type=int,
-                    help='The worksheet index, if this parameter is defined workspaces allready defined in settings.yml will not be taken into consideration. A spreadsheet key must be present.')
+                    help='The worksheet index, if this parameter is defined workspaces allready defined in .stats.yml will not be taken into consideration. A spreadsheet key must be present.')
 
 	args = parser.parse_args()
 
-	stream = open('settings.yml', 'r')
+	stream = open('.stats.yml', 'r')
 	data = yaml.load(stream)
 
 	if args.creds is not None:
