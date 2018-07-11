@@ -1,6 +1,14 @@
 # Google Spreadsheets updates in Python
 
-The project allows to automatically update a Google Spreadsheet. The input of the program must be a json file with the structure `"column_name":"value"`, `column_name` must be present in the first line (the header) of the Google Spreadsheet file. If it isn't the entire operation will abort.
+Stats CI helps you to track any measurable information you want to analyse of your project. To give this kind of flexibility, Stats CI allows you to pass a JSON value in input, that will be appended as a row into a Google Spreadsheet you define. In this way you can keep track of the informations of your specific build. The final goal is to compare data, create statistics and graphs on the project going on.
+
+Some examples of data you can track with this project are: 
+- The size of the library you are building;
+- The number of files of the project;
+- The percentage of modification between the current and the past commit;
+- Any numeric value you'd like to keep under control :)
+
+The input of the program must be a JSON with the structure `"column_name":"value"`; `column_name` must be present in the first line (the header) of the Google Spreadsheet file. If it isn't the entire operation will abort.
 
 The program is designed to work with [Travis CI](https://travis-ci.org/). For this reason it use a .yml settings file to set information related to the Spreadsheet to update.
 
