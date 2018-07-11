@@ -112,6 +112,6 @@ if __name__ == '__main__':
 	for k in sorted(row.keys()):
 		values.append(row[k])
 
-	print('[DEBUG] Writing on remote file: ')
+	print('[INFO] Writing on remote file: ')
 	print(values)
 	wsh.insert_row(values, 2)
