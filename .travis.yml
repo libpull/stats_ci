@@ -4,10 +4,11 @@ dist: trusty
 
 install:
     # here you should try to execute the script and see if it works
-    cat test.json | python stats-ci.py
+    pip install gspread
+
 script:
     # here you should execute the script to send some data to the spreadsheet
     # Whenever you are ready to get the variables from the environment you can
     # send them to me and I will add them to travis-ci.com. I'm not sure if you
     # are able to do it, but probably yes;
-    echo "ciao"
+    cat test.json | python stats-ci.py
