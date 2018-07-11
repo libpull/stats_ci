@@ -29,14 +29,14 @@ $ pip install oauth2client
 Before using Stats CI in it necessary to obtain the OAuth2 credentials from the Google Developer Console (as detailed in the [gspread documentation](http://gspread.readthedocs.io/en/latest/oauth2.html)):
 
 1. Create a new project in the [Google Developers Console](https://console.developers.google.com).
-![Create New Project](Images/create_new_project.png "Create New Project")
+![Create New Project](https://drive.google.com/file/d/1Ev_5g155cspNNcNVOYS8x46PJw6nfen7/view?usp=sharing "Create New Project")
 2. In "APIs & Services">"Library" select "Google Sheets API" and enable the API.
-![Enable API](Images/enable_API.png "Enable API")
+![Enable API](https://drive.google.com/file/d/1AI0x0KzAJn2fw_AKyxBCPy_1NYun82w7/view?usp=sharing "Enable API")
 3. In "Credential" select "Create credential">"Service Account Key" and download the JSON file.
-![Create Credentials](Images/create_credentials_1.png "Create Credentials 1")
-![Create Credentials](Images/create_credentials_2.png "Create Credentials 2")
+![Create Credentials](https://drive.google.com/open?id=1V3xRHNBWjscDTTqCXE4sQ8cxKrzNIHzq "Create Credentials 1")
+![Create Credentials](https://drive.google.com/open?id=1wYDnk3rse9LcHxc1nWLEjnWFgEgEQJRM "Create Credentials 2")
 4. Create the new private Google Spreadsheet and from the file sharing option share it with the email `client_email` that is present in the credential JSON file, otherwise you won't be able to read or modifity the file (you will receive a 403 error).
-![Share Settings](Images/share_client_email.png "Share Settings")
+![Share Settings](https://drive.google.com/open?id=1XUR8TifAaetTtsAx06wU6Mgv43K1XxdN "Share Settings")
 5. In order to use the program, you need the spreadsheet key and the worksheet index. Indexes start from 0, i.e. sheet 1 is at index 0. The spreadsheet key can be retrieved from the URL:
 ```
 https://docs.google.com/spreadsheets/d/<spreadsheet_key>/edit

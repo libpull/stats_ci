@@ -76,7 +76,6 @@ if __name__ == '__main__':
 
 	json_obj = json_as_str;
 	#json_obj = json.loads(json_as_str)
-	print(json_as_str)
 
 	scope = ['https://spreadsheets.google.com/feeds']
 	if creds_flag == 0:
