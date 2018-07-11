@@ -73,6 +73,7 @@ if __name__ == '__main__':
 	creds_flag, json_creds, sk, wi = parse_args();
 
 	json_as_str = input()
+	print(json_as_str)
 	json_obj = json.loads(json_as_str)
 	print('[DEBUG] Input: ')
 	print(json_obj)
