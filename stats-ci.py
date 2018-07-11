@@ -107,6 +107,7 @@ if __name__ == '__main__':
 			row[headers[k]] = v;
 		else:
 			print('[ERROR] Column {} not present. Aborting.'.format(k));
+			exit(-1);
 	
 	values = []
 	for k in sorted(row.keys()):
