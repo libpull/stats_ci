@@ -7,8 +7,8 @@ install:
 
 script:
     # Build your program
-    echo "Building my program"
-    cat test.json | python stats-ci.py
+    - echo "Building my program"
+    - cat test.json | python stats-ci.py
 
 #after_success:
     # Run Stats CI to log information related to the present build
