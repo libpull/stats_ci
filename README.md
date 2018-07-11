@@ -41,6 +41,7 @@ Before using Stats CI in it necessary to obtain the OAuth2 credentials from the 
 ```
 https://docs.google.com/spreadsheets/d/<spreadsheet_key>/edit
 ```
+6. If you are using the program locally you can pass the JSON file with the credentials as parameter (`--creds <cred file>`) otherwise the JSON will be retrieved from the environment variable `CREDS`. Using Travis CI, you can add a new  variable in "Settings">"Environment variables" called `CREDS` equals to the content of the JSON file retrieved from the Google Developer Console. The environment variable value must be between quotes (use single quotes and not double quotes if they already present in the JSON).
 
 ## Example
 
