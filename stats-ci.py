@@ -63,8 +63,8 @@ def parse_args():
 			print("[ERROR] Workspace alias not found!");
 			exit(-1);
 
-	print('[DEBUG] sk: {}'.format(sk))
-	print('[DEBUG] wi: {}'.format(wi))
+	print('[INFO] spreadsheet key: {}'.format(sk))
+	print('[INFO] worksheet index: {}'.format(wi))
 	
 	return creds_flag, json_creds, sk, wi;
 	
@@ -82,6 +82,7 @@ if __name__ == '__main__':
 		credentials = ServiceAccountCredentials.from_json_keyfile_name(json_creds, scope)
 	else:
 		dict_creds = json.loads(json_creds)
+		print(json_creds['type']
 		credentials = ServiceAccountCredentials.from_json_keyfile_dict(dict_creds, scope)
 	gc = gspread.authorize(credentials)
 
