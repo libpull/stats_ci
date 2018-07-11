@@ -1,6 +1,6 @@
 import gspread
 import argparse
-import os.path
+import os
 import yaml
 import json
 from oauth2client.service_account import ServiceAccountCredentials
@@ -30,11 +30,13 @@ def parse_args():
 			print('[ERROR] Credential file {} not found!'.format(args.creds)); 	
 			exit(-1)
 		print('[INFO] Using credential from file: "{}".'.format(args.creds));
+		creds_flag = 0
 		json_creds = args.creds
 	
 	else:
 		print('[INFO] Using credential from env var.');
-		json_creds = "" #TODO Integrate env vars
+		creds_flag = 1
+		json_creds = os.environ['CREDS']
 
 	if args.workspace is not None and args.sk is not None or args.wi is not None:
 		print('[ERROR] It is not possible to define both the workspace and the spreadsheet key and the worksheet index.');
@@ -64,11 +66,11 @@ def parse_args():
 	print('[DEBUG] sk: {}'.format(sk))
 	print('[DEBUG] wi: {}'.format(wi))
 	
-	return json_creds, sk, wi;
+	return creds_flag, json_creds, sk, wi;
 	
 
 if __name__ == '__main__':
-	json_creds, sk, wi = parse_args();
+	creds_flag, json_creds, sk, wi = parse_args();
 
 	json_as_str = input()
 	json_obj = json.loads(json_as_str)
@@ -76,7 +78,11 @@ if __name__ == '__main__':
 	print(json_obj)
 
 	scope = ['https://spreadsheets.google.com/feeds']
-	credentials = ServiceAccountCredentials.from_json_keyfile_name(json_creds, scope)
+	if creds_flag == 0:
+		credentials = ServiceAccountCredentials.from_json_keyfile_name(json_creds, scope)
+	else:
+		dict_creds = json.loads(json_creds)
+		credentials = ServiceAccountCredentials.from_json_keyfile_dict(dict_creds, scope)
 	gc = gspread.authorize(credentials)
 
 	sh = gc.open_by_key(sk)
