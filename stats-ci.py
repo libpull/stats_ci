@@ -82,7 +82,7 @@ if __name__ == '__main__':
 		credentials = ServiceAccountCredentials.from_json_keyfile_name(json_creds, scope)
 	else:
 		dict_creds = json.loads(json_creds)
-		print(dict_creds['type'])
+		print(dict_creds['client_email'])
 		credentials = ServiceAccountCredentials.from_json_keyfile_dict(dict_creds, scope)
 	gc = gspread.authorize(credentials)
 
