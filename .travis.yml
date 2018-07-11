@@ -3,12 +3,12 @@ sudo: false
 dist: trusty
 
 install:
-    # here you should try to execute the script and see if it works
     pip install gspread pyyaml oauth2client
 
 script:
-    # here you should execute the script to send some data to the spreadsheet
-    # Whenever you are ready to get the variables from the environment you can
-    # send them to me and I will add them to travis-ci.com. I'm not sure if you
-    # are able to do it, but probably yes;
-    cat test.json | python stats-ci.py
+    # Build your program
+
+    # Run Stats CI to log information related to the present build
+    # Here there is an example on a possible input
+    # The input can be also a JSON file on which you log information during the build operation
+    echo '{"Date":' `date +%Y-%m-%d`', "Version": 1, "Lines:" '`wc -l < stats-ci.py`', Number of Files: '`find -type f -printf . | wc -c`'}' | python stats-ci.py
