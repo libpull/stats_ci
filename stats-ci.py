@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import gspread
 import argparse
 import os
@@ -74,8 +76,10 @@ if __name__ == '__main__':
 
 	json_as_str = input()
 
-	json_obj = json_as_str;
-	#json_obj = json.loads(json_as_str)
+	if isinstance(json_as_str, dict):
+		json_obj = json_as_str;
+	else:
+		json_obj = json.loads(json_as_str)
 
 	scope = ['https://spreadsheets.google.com/feeds']
 	if creds_flag == 0:
