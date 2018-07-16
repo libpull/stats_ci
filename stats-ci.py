@@ -38,7 +38,11 @@ def parse_args():
 	else:
 		print('[INFO] Using credential from env var.');
 		creds_flag = 1
-		json_creds = os.environ['CREDS']
+		if 'CREDS' in os.environ:
+			json_creds = os.environ['CREDS']
+		else:
+			print('[ERROR] Credentials not found in env var.')
+			exit(-1)
 
 	if args.workspace is not None and args.sk is not None or args.wi is not None:
 		print('[ERROR] It is not possible to define both the workspace and the spreadsheet key and the worksheet index.');
