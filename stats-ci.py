@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import gspread
 import argparse
@@ -29,12 +29,12 @@ def parse_args():
 
 	if args.creds is not None:
 		if os.path.isfile(args.creds) == False:
-			print('[ERROR] Credential file {} not found!'.format(args.creds)); 	
+			print('[ERROR] Credential file {} not found!'.format(args.creds));
 			exit(-1)
 		print('[INFO] Using credential from file: "{}".'.format(args.creds));
 		creds_flag = 0
 		json_creds = args.creds
-	
+
 	else:
 		print('[INFO] Using credential from env var.');
 		creds_flag = 1
@@ -50,8 +50,8 @@ def parse_args():
 	if args.workspace is None:
 		if args.sk is None or args.wi is None:
 			print('[INFO] Using default workspace.');
-			sk = data["workspaces"]["default"]["-spreadsheet_key"];			
-			wi = data["workspaces"]["default"]["-worksheet_index"];			
+			sk = data["workspaces"]["default"]["-spreadsheet_key"];
+			wi = data["workspaces"]["default"]["-worksheet_index"];
 
 		else:
 			print('[INFO] Using spreadsheet and worksheet defined.');
@@ -71,9 +71,9 @@ def parse_args():
 
 	print('[INFO] spreadsheet key: {}'.format(sk))
 	print('[INFO] worksheet index: {}'.format(wi))
-	
+
 	return creds_flag, json_creds, sk, wi;
-	
+
 
 if __name__ == '__main__':
 	creds_flag, json_creds, sk, wi = parse_args();
@@ -97,7 +97,7 @@ if __name__ == '__main__':
 	wsh = sh.get_worksheet(wi)
 
 	n_cols = wsh.col_count
-	
+
 	headers = {}
 	for i in range(1, n_cols):
 		val = wsh.cell(1, i).value;
@@ -116,12 +116,12 @@ if __name__ == '__main__':
 		else:
 			print('[ERROR] Column {} not present. Aborting.'.format(k));
 			exit(-1);
-	
+
 	values = []
 	for k in sorted(row.keys()):
 		values.append(row[k])
 
 	print('[INFO] Writing on remote file: ')
 	print(values)
-	wsh.insert_row(values, 2)
+	wsh.insert_row(values, 2, "USER_ENTERED")
 	print('[INFO] End of process')
